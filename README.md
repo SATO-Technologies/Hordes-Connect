@@ -1,5 +1,41 @@
 # HORDES CONNECT
 
+1. npm.
+    ```javascript
+    npm install hordesconnect
+    ```
+
+2. cdn.
+    ```html
+    <script src='https://cdn.jsdelivr.net/npm/hordesconnect@latest/dist/bundle.min.js'></script>
+    ```
+
+## Implementation
+1.
+    ```javascript
+    import HordesConnect from 'hordesconnect';
+
+    /* sdk setup */
+    HordesConnect.initialize({ app: 'Ordinals Test App' });
+
+    /* wallet connection */
+    const connected = await HordesConnect.connect();
+    
+    /* get address */
+    let address = HordesConnect.getAddress();
+    
+    /* get utxos */
+    let funds = HordesConnect.getUtxos({ key: 'funds' }); // funds - dummies
+    
+    /* sign transaction */
+    let signTransactionRes = await HordesConnect.signTransaction({ message: 'Sign Transaction', base64Psbt: base64Psbt, broadcast: false });
+    if( signTransactionRes.error ) {
+      throw new Error(signTransactionRes.error);
+    } else {
+      // broadcast == true ? signTransactionRes.txid : signTransactionRes.signedPsbt
+    }
+    ```
+    
 ## Upcoming Documentation
 
 Thank you for visiting our GitHub repository! We are currently working on providing comprehensive documentation to help you better understand and work with our project. The documentation will be available soon, so please stay tuned for updates.
