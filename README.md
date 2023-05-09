@@ -11,16 +11,23 @@
     ```
 
 ## Implementation
-1.
+1. import.
     ```javascript
     import HordesConnect from 'hordesconnect';
-
-    /* sdk setup */
-    HordesConnect.initialize({ app: 'Ordinals Test App' });
-
-    /* wallet connection */
-    const connected = await HordesConnect.connect();
+    ```
     
+2. initialize.
+    ```javascript
+    HordesConnect.initialize({ app: 'Ordinals Test App' });
+    ```
+
+3. wallet connection.
+    ```javascript
+    const connected = await HordesConnect.connect();
+    ```
+
+4. methods.
+    ```javascript
     /* get address */
     let address = HordesConnect.getAddress();
     
