@@ -1,0 +1,26 @@
+{
+  "name": "hordes-connect-sdk",
+  "version": "1.0.0",
+  "description": "hordes-connect-sdk",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config config/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SATO-Technologies/Hordes-Connect.git"
+  },
+  "author": "SATO-Technologies",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SATO-Technologies/Hordes-Connect/issues"
+  },
+  "homepage": "https://github.com/SATO-Technologies/Hordes-Connect#readme",
+  "dependencies": {
+    "webpack": "^5.75.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.0.1"
+  }
+}
