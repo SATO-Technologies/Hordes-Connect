@@ -1,8 +1,8 @@
 {
-  "name": "hordes-connect-sdk",
-  "version": "1.0.0",
-  "description": "hordes-connect-sdk",
-  "main": "index.js",
+  "name": "hordesconnect",
+  "version": "1.0.1",
+  "description": "hordesconnect",
+  "main": "dist/bundle.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config config/webpack.config.js"
