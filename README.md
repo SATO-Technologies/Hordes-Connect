@@ -61,7 +61,7 @@ We welcome contributions to the project. If you have any questions or suggestion
 
 This project is licensed under the [MIT License](LICENSE).
 
-# HORDES WALLET for iOS and Android
+# Test HORDES WALLET for iOS & Android
 
 ![Project Logo](https://link-to-your-logo-image.com/logo.png)
 
@@ -76,4 +76,4 @@ To download the app on your iOS device, please follow the link below to access i
 
 For Android users, you can download the app by following the link below:
 
-[Android Download](<link Android>)
+[Android Download](https://play.google.com/store/apps/details?id=com.sato.hordes)
