@@ -43,6 +43,23 @@
     }
     ```
     
+# Download HORDES WALLET for iOS & Android
+
+![Project Logo](https://link-to-your-logo-image.com/logo.png)
+
+
+### iOS (Apple TestFlight)
+
+To download the app on your iOS device, please follow the link below to access it on Apple TestFlight:
+
+[iOS TestFlight Download](<https://testflight.apple.com/join/YSPV8MQn>)
+
+### Android Open Testing
+
+For Android users, you can download the app by following the link below:
+
+[Android Download](https://play.google.com/store/apps/details?id=com.sato.hordes)
+
 ## Upcoming Documentation
 
 Thank you for visiting our GitHub repository! We are currently working on providing comprehensive documentation to help you better understand and work with our project. The documentation will be available soon, so please stay tuned for updates.
@@ -60,20 +77,3 @@ We welcome contributions to the project. If you have any questions or suggestion
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
-# Test HORDES WALLET for iOS & Android
-
-![Project Logo](https://link-to-your-logo-image.com/logo.png)
-
-
-### iOS (Apple TestFlight)
-
-To download the app on your iOS device, please follow the link below to access it on Apple TestFlight:
-
-[iOS TestFlight Download](<https://testflight.apple.com/join/YSPV8MQn>)
-
-### Android 
-
-For Android users, you can download the app by following the link below:
-
-[Android Download](https://play.google.com/store/apps/details?id=com.sato.hordes)
