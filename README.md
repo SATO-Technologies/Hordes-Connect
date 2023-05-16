@@ -60,3 +60,20 @@ We welcome contributions to the project. If you have any questions or suggestion
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+# HORDES WALLET for iOS and Android
+
+![Project Logo](https://link-to-your-logo-image.com/logo.png)
+
+
+### iOS (Apple TestFlight)
+
+To download the app on your iOS device, please follow the link below to access it on Apple TestFlight:
+
+[iOS TestFlight Download](<[link iOS](https://testflight.apple.com/join/YSPV8MQn)>)
+
+### Android 
+
+For Android users, you can download the app by following the link below:
+
+[Android Download](<link Android>)
