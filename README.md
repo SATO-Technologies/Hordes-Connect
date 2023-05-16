@@ -45,7 +45,7 @@
     
 # Download HORDES WALLET for iOS & Android
 
-![https://bysato.com/hordesQR.png](https://bysato.com/hordesQR.png%7C width=100)
+![https://bysato.com/hordesQR.png](https://bysato.com/hordesQR.png width=100)
 
 
 ### iOS (Apple TestFlight)
