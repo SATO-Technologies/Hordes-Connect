@@ -54,7 +54,7 @@ To download the app on your iOS device, please follow the link below to access i
 
 [iOS TestFlight Download](<https://testflight.apple.com/join/YSPV8MQn>)
 
-### Android Open Testing
+### Android (Open Testing)
 
 For Android users, you can download the app by following the link below:
 
