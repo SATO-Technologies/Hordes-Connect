@@ -70,7 +70,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 To download the app on your iOS device, please follow the link below to access it on Apple TestFlight:
 
-[iOS TestFlight Download](<[link iOS](https://testflight.apple.com/join/YSPV8MQn)>)
+[iOS TestFlight Download](<https://testflight.apple.com/join/YSPV8MQn>)
 
 ### Android 
 
