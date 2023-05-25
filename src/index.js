@@ -1,22 +1,19 @@
 /* contants */
 const connectUrlBase = 'https://hordesconnect.bysato.com';
 
+/* utils */
+import { isMobile } from './utils/device';
+
 class HordesConnect {
 
   constructor() {
     this.app = '';
     this.size = {
-      width: 350,
-      height: 600,
-      top: (window.innerHeight / 2) - (600 / 2),
-      left: (window.innerWidth / 2) - (350 / 2)
+      width: isMobile() ? window.innerWidth : 350,
+      height: isMobile() ? window.innerHeight : 820,
+      top: isMobile() ? 0 : (window.innerHeight / 2) - (820 / 2),
+      left: isMobile() ? 0 : (window.innerWidth / 2) - (350 / 2)
     }
-    this.connected = false;
-    this.address = null;
-    this.utxos = {
-      funds: [],
-      dummies: []
-    };
 
   }
 
@@ -25,36 +22,13 @@ class HordesConnect {
     this.app = app;
 
     const { top, left, width, height } = size || { };
-    if( width && height ) {
-      this.size = {
-        width: width,
-        height: height,
-        top: top || ((window.innerHeight - height) / 2),
-        left: left || ((window.innerWidth - width) / 2)
-      }
-    }
-  }
-
-  /* getters */
-  getAddress() {
-    if( !this.isConnected() ) {
-      console.warn('Hordes Wallet is not connected')
-    }
-    return this.address;
-  }
-
-  getUtxos({ key = 'funds' }) {
-    if( !this.isConnected() ) {
-      console.warn('Hordes Wallet is not connected')
-    }
-    return this.utxos[key] || [];
+    if( !isNaN(top) ) this.size.top = +top;
+    if( !isNaN(left) ) this.size.left = +left;
+    if( !isNaN(width) ) this.size.width = +width;
+    if( !isNaN(height) ) this.size.height = +height;
   }
 
   /* actions */
-  isConnected() {
-    return this.connected;
-  }
-
   open(params = { }, callback) {
     let hordesConnectWindow = window.open(`${connectUrlBase}?payload=${encodeURIComponent(JSON.stringify(params))}`, '_blank', `toolbar=no,scrollbars=no,resizable=no,top=${this.size.top},left=${this.size.left},width=${this.size.width},height=${this.size.height}}`);
     window.addEventListener('message', (e) => {
@@ -65,7 +39,7 @@ class HordesConnect {
     });
   }
 
-  connect({ message = 'Address and list of utxos' } = { }) {
+  getAddress({ message = 'Address and Utxos' } = { }) {
     return new Promise(async (resolve, reject) => {
       try {
         this.open({
@@ -74,14 +48,13 @@ class HordesConnect {
           message: message,
         }, (data) => {
           if( data && data.type == 'address_utxos' ) {
-            this.connected = true;
-            this.address = data.payload.address;
-            this.utxos = data.payload.utxos;
-            resolve(true);
+            resolve(data.payload);
+          } else {
+            resolve(null);
           }
         });
       } catch {
-        reject(false)
+        reject(null);
       }
     });
   }
