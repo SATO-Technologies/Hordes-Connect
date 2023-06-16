@@ -49,8 +49,12 @@ class HordesConnect {
     }
   }
 
-  open(requestId, callback) {
-    let hordesConnectWindow = window.open(`${connectUrlBase}/${requestId}`, '_blank', `toolbar=no,scrollbars=no,resizable=no,top=${this.size.top},left=${this.size.left},width=${this.size.width},height=${this.size.height}}`);
+  open() {
+    return window.open(`${connectUrlBase}`, '_blank', `toolbar=no,scrollbars=no,resizable=no,top=${this.size.top},left=${this.size.left},width=${this.size.width},height=${this.size.height}}`);
+  }
+
+  update(hordesConnectWindow, requestId, message, callback) {
+    hordesConnectWindow.location.href = `${connectUrlBase}/${requestId}?=msg=${message}`;
     window.addEventListener('message', (e) => {
       let origin = e.originalEvent?.origin || e.origin;
       if( origin.includes(connectUrlBase) ) {
@@ -60,6 +64,7 @@ class HordesConnect {
   }
 
   getAddress({ message = 'Address' } = { }) {
+    let hordesConnectWindow = this.open();
     return new Promise(async (resolve, reject) => {
       try {
         let requestId = await this.createRequest({
@@ -68,7 +73,7 @@ class HordesConnect {
           message: message,
         });
         if( requestId ) {
-          this.open(requestId, (data) => {
+          this.update(hordesConnectWindow, requestId, message, (data) => {
             if( data && data.type == 'address' ) {
               resolve(data.payload);
             } else {
@@ -85,6 +90,7 @@ class HordesConnect {
   }
 
   signTransaction({ message = 'Sign Transaction', base64Psbt = null, broadcast = false }) {
+    let hordesConnectWindow = this.open();
     return new Promise(async (resolve, reject) => {
       try {
         let requestId = await this.createRequest({
@@ -95,7 +101,7 @@ class HordesConnect {
           broadcast: broadcast
         });
         if( requestId ) {
-          this.open(requestId, (data) => {
+          this.update(hordesConnectWindow, requestId, message, (data) => {
             if( data && data.type == 'sign_transaction' ) {
               resolve(data.payload)
             } else {
@@ -111,30 +117,32 @@ class HordesConnect {
     });
   }
 
-  mint({ message = 'Mint Inscription', commitmentPsbt, revealTxData, fee }) {
+  mint({ message = 'Inscribe Inscription', address, commitmentPsbt, revealTxData, fee }) {
+    let hordesConnectWindow = this.open();
     return new Promise(async (resolve, reject) => {
       try {
         let requestId = await this.createRequest({
           app: this.app,
           type: 'mint_inscription',
           message: message,
+          address: address,
           commitmentPsbt: commitmentPsbt,
           revealTxData: revealTxData,
           fee: fee
         });
         if( requestId ) {
-          this.open(requestId, (data) => {
+          this.update(hordesConnectWindow, requestId, message, (data) => {
             if( data && data.type == 'mint_inscription' ) {
               resolve(data.payload)
             } else {
-              reject({ error: 'unable to mint inscription' });
+              reject({ error: 'unable to inscribe inscription' });
             }
           });
         } else {
           reject({ error: 'unable to create request' });
         }
       } catch (e) {
-        reject({ error: 'unable to mint inscription' });
+        reject({ error: 'unable to inscribe inscription' });
       }
     });
   }

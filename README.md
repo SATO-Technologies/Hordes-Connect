@@ -15,25 +15,17 @@
     ```javascript
     import HordesConnect from 'hordesconnect';
     ```
-    
+
 2. initialize.
     ```javascript
     HordesConnect.initialize({ app: 'Ordinals Test App' });
     ```
 
-3. wallet connection.
-    ```javascript
-    const connected = await HordesConnect.connect();
-    ```
-
-4. methods.
+3. methods.
     ```javascript
     /* get address */
     let address = HordesConnect.getAddress();
-    
-    /* get utxos */
-    let funds = HordesConnect.getUtxos({ key: 'funds' }); // funds - dummies
-    
+
     /* sign transaction */
     let signTransactionRes = await HordesConnect.signTransaction({ message: 'Sign Transaction', base64Psbt: base64Psbt, broadcast: false });
     if( signTransactionRes.error ) {
@@ -42,7 +34,7 @@
       // broadcast == true ? signTransactionRes.txid : signTransactionRes.signedPsbt
     }
     ```
-    
+
 # Download HORDES WALLET for iOS & Android
 
 
