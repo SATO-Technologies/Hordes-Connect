@@ -55,12 +55,14 @@ class HordesConnect {
 
   update(hordesConnectWindow, requestId, type, message, callback) {
     hordesConnectWindow.location.href = `${connectUrlBase}/${requestId}?type=${type}&msg=${message}`;
-    window.addEventListener('message', (e) => {
-      let origin = e.originalEvent?.origin || e.origin;
-      if( origin.includes(connectUrlBase) ) {
-        callback(JSON.parse(e.data));
-      }
-    });
+    if( callback ) {
+      window.addEventListener('message', (e) => {
+        let origin = e.originalEvent?.origin || e.origin;
+        if( origin.includes(connectUrlBase) ) {
+          callback(JSON.parse(e.data));
+        }
+      });
+    }
   }
 
   getAddress({ message = 'Address' } = { }) {
@@ -117,18 +119,20 @@ class HordesConnect {
     });
   }
 
-  mint({ message = 'Inscribe Inscription', address, commitmentPsbt, revealTxData, fee }) {
+  mint({ message = 'Inscribe Inscription', owner, commitmentPsbt, revealTxData, fee, collection = null }) {
     let hordesConnectWindow = this.open('mint_inscription', message);
     return new Promise(async (resolve, reject) => {
       try {
         let requestId = await this.createRequest({
           app: this.app,
           type: 'mint_inscription',
+          status: 'WAITING_FOR_USER_APPROVAL',
+          owner: owner,
+          collection: collection,
+          fee: fee,
           message: message,
-          address: address,
           commitmentPsbt: commitmentPsbt,
           revealTxData: revealTxData,
-          fee: fee
         });
         if( requestId ) {
           this.update(hordesConnectWindow, requestId, 'mint_inscription', message, (data) => {
