@@ -38,13 +38,13 @@
 # Download HORDES WALLET for iOS & Android
 
 
-### iOS (Apple TestFlight)
+### iOS
 
-To download the app on your iOS device, please follow the link below to access it on Apple TestFlight:
+To download the app on your iOS device, please follow the link below to access it on Apple:
 
-[iOS TestFlight Download](<https://testflight.apple.com/join/YSPV8MQn>)
+[iOS Download](<[https://apple.com/YSPV8MQn](https://apps.apple.com/us/app/hordes-wallet/id6446144699)>)
 
-### Android (Open Testing)
+### Android
 
 For Android users, you can download the app by following the link below:
 
