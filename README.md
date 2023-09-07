@@ -42,7 +42,7 @@
 
 To download the app on your iOS device, please follow the link below to access it on Apple:
 
-[iOS Download](<https://apple.com/YSPV8MQn](https://apps.apple.com/us/app/hordes-wallet/id6446144699)>)
+[iOS Download](https://apps.apple.com/us/app/hordes-wallet/id6446144699)
 
 ### Android
 
